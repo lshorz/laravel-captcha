@@ -183,7 +183,7 @@ class Captcha extends AbstractCaptcha
      */
     public function src($config = null)
     {
-        return url('captcha' . ($config ? '/' . $config : '/default')) . '?' . Str::random(8);
+        return url('captcha' . ($config ? '/' . $config : '/default')) . '?' . \Str::random(8);
     }
 
     /**
