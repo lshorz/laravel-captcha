@@ -39,11 +39,12 @@ if ( ! function_exists('captcha_check')) {
 	/**
 	 * @param $value
      * @param $once
+     * @param $config
 	 * @return bool
 	 */
-	function captcha_check($value, $once = true)
+	function captcha_check($value, $once = true, $config = 'default')
 	{
-		return app('captcha')->check($value, $once);
+		return app('captcha')->check($value, $once, $config);
 	}
 }
 

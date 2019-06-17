@@ -7,6 +7,11 @@ use Exception;
 class Captcha extends AbstractCaptcha
 {
     /**
+     * @var string $name
+     */
+    protected $name = 'captcha';
+
+    /**
      * 生成的验证码字符
      * @var array
      */
@@ -58,7 +63,7 @@ class Captcha extends AbstractCaptcha
 
         $hash = password_hash($key, PASSWORD_BCRYPT, ['cost' => 10]);
 
-        $this->session->put('captcha', ['key' => $hash]);
+        $this->session->put($this->name, ['key' => $hash]);
         return [
             'value' => $bag,
             'key' => $hash,
@@ -142,21 +147,23 @@ class Captcha extends AbstractCaptcha
      *
      * @param string $value 用户验证码
      * @param boolean $once 是否只验证一次(如查是ajax则可设置为false)
+     * @param string $config
      *
      * @return bool
      */
-    public function check($value, $once = true)
+    public function check($value, $once = true, $config = 'default')
     {
-        if (!$this->session->has('captcha')) {
+        $this->configure($config);
+        if (!$this->session->has($this->name)) {
             return false;
         }
 
-        $key = $this->session->get('captcha.key');
+        $key = $this->session->get("{$this->name}.key");
         $value = mb_strtolower($value, 'UTF-8');
         $res = password_verify($value, $key);
 
         if ($res && $once) {
-            $this->session->remove('captcha');
+            $this->session->remove($this->name);
         }
         return $res;
     }

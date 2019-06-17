@@ -46,7 +46,7 @@ class CaptchaServiceProvider extends ServiceProvider {
     {
         $this->app['validator']->extend('captcha', function($attribute, $value, $parameters)
         {
-            return captcha_check($value, isset($parameters[0]) ? $parameters[0] : true);
+            return captcha_check($value, isset($parameters[0]) ? $parameters[0] : true, isset($parameters[1]) ? $parameters[1] : 'default');
         });
 
         $this->app['validator']->extend('captcha_api', function($attribute, $value, $parameters)
