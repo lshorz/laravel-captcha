@@ -13,8 +13,8 @@ return [
         'noise' => 60,     //噪点数量
         'angle' => 1,      //字体角度(0:则随机角度)
         'distort' => true, //开启图像扭曲度
-        'distortType' => 2, //图像扭曲算法
-        'distortScale' => 2.0, //图像扭曲度(仅distortType=1有效)
+        'distortType' => 1, //图像扭曲算法
+        'distortScale' => 1.5, //图像扭曲度(仅distortType=1有效)
         'lines' => 0,     //干扰线数量(0:则不生成)
         'lineThickness' => mt_rand(1, 3), //干扰线粗细
         'curve' => false,  //一条干扰曲线
