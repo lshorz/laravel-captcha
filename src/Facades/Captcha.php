@@ -11,6 +11,6 @@ class Captcha extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'captcha';
+        return 'Captcha';
     }
 }
