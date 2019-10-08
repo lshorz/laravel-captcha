@@ -1,8 +1,8 @@
 {
 	"name": "lshorz/laravel-captcha",
 	"type": "package",
-	"description": "Laravel 5 Captcha Package",
-	"keywords": ["laravel5.X Captcha", "laravel5 Security", "Captcha"],
+	"description": "Laravel Captcha Package",
+	"keywords": ["laravel Captcha", "Captcha"],
 	"homepage": "https://github.com/lshorz/laravel-captcha",
 	"license": "MIT",
 	"authors": [
@@ -14,9 +14,6 @@
 	"require": {
 		"php": ">=7.0",
 		"ext-gd": "*",
-		"illuminate/config": "~5.0",
-		"illuminate/filesystem": "~5.0",
-		"illuminate/support": "~5.0",
 		"intervention/image": "~2.2"
 	},
 	"require-dev": {
