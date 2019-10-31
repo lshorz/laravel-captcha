@@ -73,7 +73,7 @@ public function ajaxCheck(Request $request)
 {
     $code = $request->get('code');
     //  验证函数第二个参数为false,则验证后不清除session，可用于支持ajax验证，最终提交后再清除session
-    $check = Captcha::check($request->get('code'), false, 'number');
+    $check = captcha_check($request->get('code'), false, 'number');
     $data = [
         'code' => $code,
         'v' => $check
